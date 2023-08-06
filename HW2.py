@@ -1,12 +1,12 @@
 #Касир в кінотеатрі:
-import sys
 
-
-user_input = input('Введіть Ваш вік : ')
-if user_input.__contains__('7'):
-    print('Вам пощастить!')
-    sys.exit()
 while True:
+    import sys
+
+    user_input = input('Введіть Ваш вік : ')
+    if user_input.__contains__('7'):
+        print('Вам пощастить!')
+        sys.exit()
     if user_input.isdigit():
         user_input = int(user_input)
         break
