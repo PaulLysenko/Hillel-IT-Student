@@ -31,6 +31,6 @@ lower_limit = 35.9
 upper_limit = 37.339
 stores = {"cito": 47.999, "BB_studio": 42.999, "momo": 49.999, "main-service": 37.245, "buy.now": 38.324,"x-store": 37.166, "the_partner": 38.988, "store": 37.720, "rozetka": 38.003}
 
-for dict_value in stores.items():
-    if lower_limit < dict_value[1] < upper_limit:
-        print(f'price match: "{dict_value[0]}", {dict_value[1]}')
+for dict_items in stores.items():
+    if lower_limit < dict_items[1] < upper_limit:
+        print(f'price match: "{dict_items[0]}", {dict_items[1]}')
