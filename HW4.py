@@ -29,12 +29,8 @@ while True:
 #Є два довільних числа які відповідають за мінімальну і максимальну ціну. Є Dict з назвами магазинів і цінами: { "cito": 47.999, "BB_studio" 42.999, "momo": 49.999, "main-service": 37.245, "buy.now": 38.324, "x-store": 37.166, "the_partner": 38.988, "store": 37.720, "rozetka": 38.003}. Напишіть код, який знайде і виведе на екран назви магазинів, ціни яких попадають в діапазон між мінімальною і максимальною ціною.
 lower_limit = 35.9
 upper_limit = 37.339
-stores =  { "cito": 47.999, "BB_studio": 42.999, "momo": 49.999, "main-service": 37.245, "buy.now": 38.324, "x-store": 37.166, "the_partner": 38.988, "store": 37.720, "rozetka": 38.003}
-price_list = []
+stores = {"cito": 47.999, "BB_studio": 42.999, "momo": 49.999, "main-service": 37.245, "buy.now": 38.324,"x-store": 37.166, "the_partner": 38.988, "store": 37.720, "rozetka": 38.003}
 
-for dict_value in stores.values():
-    price_list.append(dict_value)
-
-for price in price_list:
-    if lower_limit < price < upper_limit:
-        print(price)
+for dict_value in stores.items():
+    if lower_limit < dict_value[1] < upper_limit:
+        print(f'price match: "{dict_value[0]}", {dict_value[1]}')
