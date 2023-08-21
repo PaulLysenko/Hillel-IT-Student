@@ -70,6 +70,7 @@ def check_age_and_show_message(age):
         print(f'Тобі ж {age} {age_form}! Де твої батьки?')
     else:
         print(f'Незважаючи на те, що вам {age} {age_form}, білетів всеодно нема!')
+
 def cinema_cashier():
     while True:
         age_input = input('Введіть ваш вік: ')
