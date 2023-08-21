@@ -59,17 +59,17 @@ def is_valid_age(age):
         return False
 
 def check_age_and_show_message(age):
+    age_form = get_age_form(age)
     if '7' in str(age):
-        print(f'Вам {age} {get_age_form(age)}, вам пощастить!')
+        print(f'Вам {age} {age_form}, вам пощастить!')
     elif age < 16:
-        print(f'Тобі лише {age} {get_age_form(age)}, а це фільм для дорослих!')
+        print(f'Тобі лише {age} {age_form}, а це фільм для дорослих!')
     elif age > 65:
-        print(f'Вам {age} {get_age_form(age)}? Покажіть пенсійне посвідчення!')
+        print(f'Вам {age} {age_form}? Покажіть пенсійне посвідчення!')
     elif age < 7:
-        print(f'Тобі ж {age} {get_age_form(age)}! Де твої батьки?')
+        print(f'Тобі ж {age} {age_form}! Де твої батьки?')
     else:
-        print(f'Незважаючи на те, що вам {age} {get_age_form(age)}, білетів всеодно нема!')
-
+        print(f'Незважаючи на те, що вам {age} {age_form}, білетів всеодно нема!')
 def cinema_cashier():
     while True:
         age_input = input('Введіть ваш вік: ')
