@@ -1,5 +1,4 @@
 #Напишіть функцію, що приймає один аргумент будь-якого типу та повертає цей аргумент, перетворений на float. Якщо перетворити не вдається функція має повернути 0.
-user_input = input('Введіть аргумент: ')
 
 def convertor(input_value):
     try:
@@ -10,6 +9,7 @@ def convertor(input_value):
 
     return res
 
+user_input = input('Введіть аргумент: ')
 result = convertor(user_input)
 print(f'result is {result}')
 
@@ -69,7 +69,7 @@ def check_age_and_show_message(age):
     elif age < 7:
         print(f'Тобі ж {age} {age_form}! Де твої батьки?')
     else:
-        print(f'Незважаючи на те, що вам {age} {age_form}, білетів всеодно нема!')
+        print(f'Незважаючи на те, що вам {age} {age_form}, білетів все одно нема!')
 
 def cinema_cashier():
     while True:
