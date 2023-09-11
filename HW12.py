@@ -3,11 +3,8 @@ class Point:
     _y = 0
 
     def __init__(self, x, y):
-        if isinstance(x, (int, float)) and isinstance(y, (int, float)):
-            self._x = x
-            self._y = y
-        else:
-            raise TypeError
+        self.x = x
+        self.y = y
 
     @property
     def x(self):
@@ -80,19 +77,20 @@ class Triangle:
 
 
     def __init__(self, point_1, point_2, point_3):
-        self._point_1 = point_1
-        self._point_2 = point_2
-        self._point_3 = point_3
+        self.point_1 = point_1
+        self.point_2 = point_2
+        self.point_3 = point_3
 
-    def side_length(self, point1, point2):
+    @staticmethod
+    def side_length(point1, point2):
         diffx = point1.x - point2.x
         diffy = point1.y - point2.y
         return (diffx ** 2 + diffy ** 2) ** 0.5
 
     def triangle_area(self):
-        a = self.side_length(self.point1, self.point2)
-        b = self.side_length(self.point2, self.point3)
-        c = self.side_length(self.point3, self.point1)
+        a = self.side_length(self.point_1, self.point_2)
+        b = self.side_length(self.point_2, self.point_3)
+        c = self.side_length(self.point_3, self.point_1)
         p = (a + b + c) / 2
         area = (p * (p - a) * (p - b) * (p - c)) ** 0.5
         return area
