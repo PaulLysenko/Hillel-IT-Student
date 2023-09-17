@@ -10,12 +10,16 @@ else:
         currency_list = response.json()
 
         with open('currency.txt', 'w', encoding='utf-8') as file:
-            file.write("[Дата, на яку актуальний курс]\n")
+            if 'exchangedate' in currency_list[0]:
+                date = currency_list[0]['exchangedate']
+                file.write(f'[Дата, на яку актуальний курс: {date}] \n')
+            else:
+                pass
 
             for index, currency in enumerate(currency_list, start=1):
                 currency_name = currency['txt']
                 currency_rate = currency['rate']
-                file.write(f"{index}. {currency_name} to UAH: {currency_rate}\n")
+                file.write(f'{index}. {currency_name} to UAH: {currency_rate}\n')
 
         print('Saved in currency.txt')
     else:
