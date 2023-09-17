@@ -7,20 +7,23 @@ except Exception as Exc:
     print(f'Error is {Exc}')
 else:
     if 200 <= response.status_code < 300 and response.headers['Content-Type'] == 'application/json; charset=utf-8':
-        currency_list = response.json()
+        try:
+            currency_list = response.json()
 
-        with open('currency.txt', 'w', encoding='utf-8') as file:
-            if 'exchangedate' in currency_list[0]:
-                date = currency_list[0]['exchangedate']
-                file.write(f'[Дата, на яку актуальний курс: {date}] \n')
-            else:
-                pass
+            with open('currency.txt', 'w', encoding='utf-8') as file:
+                if 'exchangedate' in currency_list[0]:
+                    date = currency_list[0]['exchangedate']
+                    file.write(f'[Дата, на яку актуальний курс: {date}] \n')
+                else:
+                    pass
 
-            for index, currency in enumerate(currency_list, start=1):
-                currency_name = currency['txt']
-                currency_rate = currency['rate']
-                file.write(f'{index}. {currency_name} to UAH: {currency_rate}\n')
+                for index, currency in enumerate(currency_list, start=1):
+                    currency_name = currency.get('txt')
+                    currency_rate = currency.get('rate')
+                    file.write(f'{index}. {currency_name} to UAH: {currency_rate}\n')
 
-        print('Saved in currency.txt')
+            print('Saved in currency.txt')
+        except Exception as e:
+            print(f'Problem: {e}')
     else:
         print(f'Error {response.status_code}')
